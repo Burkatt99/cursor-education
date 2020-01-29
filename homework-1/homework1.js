@@ -23,7 +23,7 @@ console.log(false)
 price = Math.random(100)*400;
 discount = Math.floor(Math.random()*100);
 sumDiscount = price*discount/100;
-sumPay = price - (price*discount/100);
+sumPay = (price - (price*discount/100)).toFixed(2);
 lostProfit = (price/2) - sumDiscount;
 
 const result = `Максимальная цена: ${maxPrice}
