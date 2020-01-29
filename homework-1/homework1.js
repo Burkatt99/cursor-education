@@ -33,8 +33,8 @@ const result = `Максимальная цена: ${maxPrice}
 Сумма товаров округленных до сотен: ${thous}
 Здача с 500: ${rest}
 Среднее значение цен: ${middle}
-Цена: ${price}% 
-Скидка: ${discount}
+Цена: ${price} 
+Скидка: ${discount}%
 Цена для оплаты: ${sumPay}
 Упущенная выгода: ${lostProfit}`
 console.log(result);
