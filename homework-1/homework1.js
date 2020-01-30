@@ -11,7 +11,7 @@ rest = money - summa;
 middle = summa/arr.length;
 maxPrice = Math.max(chocolate, perfumes,book);
 wholePart = Math.floor(summa);
-thous = (summa).toFixed(2);
+thous = Math.ceil(summa / 100) * 100;
 
 
 	if(minPrice % 2 !==0) {
