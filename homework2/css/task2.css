@@ -23,8 +23,8 @@ body{
 	margin-left: 120px;
 }
 .myFoto{
-	width: 61%;
-	height: 245px;
+	width: 260px;
+	height: 260px;
 	background-image: url("images/me2.png");	
 	background-size: 100% auto;
 	background-repeat: no-repeat;
@@ -34,7 +34,7 @@ body{
 .myFoto:hover{
 	background-image: url("images/me1.png");
 	border: 2px solid black;
-	border-radius: 100%;
+	border-radius: 50%;
 }
 h1{
 	color: IndianRed;
