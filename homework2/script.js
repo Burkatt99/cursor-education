@@ -29,7 +29,7 @@ function checkEven(){
 	for(; numN <= numM; numN++){
 		summa += numN;
 		}
-		document.writeln(`<p>N + M with even numbers = ${summa}.</p>`);
+		document.writeln(`N + M with even numbers = ${summa}.`);
 	}
 	 
 }
