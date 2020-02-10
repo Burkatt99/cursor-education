@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+*{
+	padding: 0px;
+	margin:0px;
+}
+body{
+	background-image: url("images/1.jpg");
+	 background-size: 100% auto; 
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+}
+.inform{
+	width: 40%;
+	/*border: 1px solid red;*/
+}
+.forMe{
+	width: 80%;
+	/*border: 1px solid pink;*/
+	padding-top: 40px;
+	margin-left: 120px;
+}
+.myFoto{
+	width: 260px;
+	height: 260px;
+	background-image: url("images/me2.png");	
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	margin-left: 17%;
+	margin-bottom: 0;	
+}
+.myFoto:hover{
+	background-image: url("images/me1.png");
+	border: 2px solid black;
+	border-radius: 50%;
+}
+h1{
+	color: IndianRed;
+}
+h1,h2{
+text-align: center;
+font-family: 'Reenie Beanie', cursive;
+font-size: 80px;
+}
+.blocks{
+	/*border:1px solid green;*/
+	width: 60%;
+	padding:30px 30px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.blocks a{
+	text-decoration: none;
+	color: black;
+}
+.task1, .task2{
+	width: 40%;
+	border: 2px solid IndianRed;
+	border-radius: 25px;
+	text-align: center;
+	padding-top: 20px;
+	background: rgba(0,0,0,0.1);
+}
+.task1:hover, .task2:hover{
+	background: rgba(0,0,0,0);
+		border:2px solid black;
+		color: IndianRed;
+}
+.task1:hover a{
+	color: IndianRed;
+}
+.task1{
+	margin-left: 50px; }
+
+.task2{
+	margin:10px 30%; }
+	h3{
+	font-family: 'Reenie Beanie', cursive;
+	font-size: 40px;	
+	}
+p{
+	font-size: 25px;
+	color: black;
+	font-family: 'Pacifico', cursive
+
+}
