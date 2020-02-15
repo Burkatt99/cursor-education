@@ -35,7 +35,7 @@ document.writeln(`<p>Result function #4: ${salaryWithTax()}.</p>`);
 function randomNumber() {
   min = prompt("Write minimum number");
   max = prompt("Write maximum number");
-  return Math.floor(Math.random() * (max - min + 1)) + min; //Включаючи мінімум та максимум 
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 document.writeln(`<p>Result function #5: ${randomNumber()}.</p>`);
 
