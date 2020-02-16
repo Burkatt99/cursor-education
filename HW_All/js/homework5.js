@@ -1,4 +1,3 @@
-
 function getRandomArray(length, min, max){
 	let arr = [];
 	for (let i=0; i < length; i++){
@@ -10,6 +9,7 @@ function getRandomArray(length, min, max){
 	return arrRand;
 }
 console.log(getRandomArray(15,1,100));
+document.writeln(`<p>Result function #1: ${getRandomArray(15,1,100)}.</p>`);
 
 function getModa(){
 	const arr = [6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2];
@@ -29,6 +29,7 @@ function getModa(){
 	return moda;
 }
 console.log(getModa());
+document.writeln(`<p>Result function #2: Moda = ${getModa()}.</p>`);
 
 function getAverage(){
 	const arr = [6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2];
@@ -39,6 +40,7 @@ function getAverage(){
 	return average = summa/arr.length+1;
 }
 console.log(getAverage());
+document.writeln(`<p>Result function #3: Average = ${getAverage()}.</p>`);
 
 function getMedian(){
 	const arr = [1, 2, 3, 4];
@@ -54,6 +56,7 @@ function getMedian(){
 	return mediana;
 }
 console.log(getMedian());
+document.writeln(`<p>Result function #4: Median = ${getMedian()}.</p>`);
 
 function filterEvenNumber(){
 	const arr = [1, 2, 3, 4, 5, 6];
@@ -61,6 +64,7 @@ function filterEvenNumber(){
 	return findEvenNum;
 }
 console.log(filterEvenNumber());
+document.writeln(`<p>Result function #5: Even Number = ${filterEvenNumber()}.</p>`);
 
 function countPositiveNumbers(){
 	const arr = [1, -2, 3, -4, -5, 6, 7];
@@ -68,6 +72,7 @@ function countPositiveNumbers(){
 	return withoutNegativeNum.length;
 } 
 console.log(countPositiveNumbers());
+document.writeln(`<p>Result function #6: Positive number = ${countPositiveNumbers()}.</p>`);
 
 function getDivideByFive(){
 	const arr = [6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2];
@@ -75,24 +80,28 @@ function getDivideByFive(){
 	return numbers;
 }
 console.log(getDivideByFive());
+document.writeln(`<p>Result function #7: ${getDivideByFive()}.</p>`);
 
-/*function replaceBadWords(){
-	const string = "Are you fucking kidding?";
-	string.toLowerCase.split(" ");
-	const badWord = string =>{
-		for(let i=0; i <= string.length;i++){
-			if(string[i] === 'fuck' || string[i] === 'shit'){
-				string[i] = "****";
-				}
-			}
-			console.log(string.find(badWord));
-		}
-	return string.join(" ");
-	}
+function replaceBadWords(){
+	const string = "Are you fucking kidding shift?";
+	const badWords = /fuck|shift/gi;
+	let newString = string.replace(badWords,"****");
+	return newString;
+}
+console.log(replaceBadWords());
+document.writeln(`<p>Result function #8: ${replaceBadWords()}</p>`);
 
-console.log(replaceBadWords());*/
 function divideByThree(word){
-	word.toLowerCase().split(" ");
-
+	const arr = word.toLowerCase().split(" ");
+	let result = [];
+	if (word.length > 3) {
+		const wordSyllable = arr.map((letter) => {
+			for(let i = 0; i < letter.length; i += 3){
+				result.push(letter.slice(i,i + 3)); 
+			}
+		});
+	}
+		return result;
 }
 console.log(divideByThree("Commander"));
+document.writeln(`<p>Result function #9: ${divideByThree("Commander")}.</p>`);
