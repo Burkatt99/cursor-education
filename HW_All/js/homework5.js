@@ -37,7 +37,7 @@ function getAverage(){
     // console.log('accumulator', accumulator);
     return summa = accumulator + currentEl;
 }, 0);
-	return average = summa/arr.length+1;
+	return average = summa/arr.length;
 }
 console.log(getAverage());
 document.writeln(`<p>Result function #3: Average = ${getAverage()}.</p>`);
