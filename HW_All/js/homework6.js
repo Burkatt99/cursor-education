@@ -24,23 +24,29 @@ const students = [{
   }
 }];
 
-function getSubject () {
-  let names =[];
-  let subjects = [];
-  for(let i=0; i< students.length;i++){
-   let sub = Object.keys(students[i].subjects);
+function getSubject (arr) {
+  const names =[];
+  const subjects = [];
+  const result = [];
+  for(let i=0; i< arr.length;i++){
+   const sub = Object.keys(arr[i].subjects);
    subjects.push(sub.map((subject) => subject[0].toUpperCase() + subject.slice(1).replace('_'," ")));  
  }
- for(let k=0; k < students.length; k++){
-  let nameStudent = students[k].name;
-  names.push(nameStudent);
+ for(let k=0; k < arr.length; k++){
+  names.push(arr[k].name);
 }
-console.log(names);
-for(let i=0; i < names.length; i++){
-  document.writeln(`<p>Student ${names[i]} have this subjects:${subjects[i]}.</p>`);  
+for(let i=0; i< names.length;i++){
+  result.push(names[i],subjects[i]);
 }
+return result;
 }
 console.log(getSubject(students));
+const nameStudent = getSubject(students);
+for(let i=0; i < nameStudent.length; i+=2){
+  document.writeln(`<p>Student ${nameStudent[i]} have this subjects:${nameStudent[i+1]}.</p>`);  
+}
+
+
 
 function getAverage(arr){
   arr.reduce((accumulator, currentEl) => {
@@ -49,95 +55,94 @@ function getAverage(arr){
   let average = summa/arr.length;
   return average.toFixed(2);
 }
-
-
-function getAvarageMark(){
-  let marks = [];
-  let averageArr = [];
-  let markStudents = {};
-  for(let i=0; i< students.length;i++){
-    let mark = Object.values(students[i].subjects);
-    marks.push([].concat.apply([], mark));
+function getAvarageMark(arr){
+  const marks = [];
+  const averageArr = [];
+  const markStudents = {};
+  for(let i=0; i < arr.length;i++){
+    marks.push([].concat.apply([], Object.values(arr[i].subjects)));
   }
   for(k = 0; k < marks.length; k++){
     averageArr.push(getAverage(marks[k]));
   }
   console.log(averageArr);
   averageArr.forEach((mark, i) => {
-    markStudents[students[i].name] = mark;
-  });
-  document.writeln(`<p>Students have this marks: </p>`);
-  Object.entries(markStudents).map(([name, marks]) => {
-    document.writeln(`<li>${name}: ${marks} </li>`);
+    markStudents[arr[i].name] = mark;
   });
   return markStudents;
 }
-console.log(getAvarageMark());
+const nameWithMark = getAvarageMark(students);
+console.log(nameWithMark);
+document.writeln(`<p>Students have this marks: </p>`);
+Object.entries(nameWithMark).map(([name, marks]) => {
+  document.writeln(`<li>${name}: ${marks} </li>`);
+});
 
-function getStudentInfo(){
-  let marks = [];
-  let averageArr = [];
-  let markStudents = [];
-  for(let i=0; i< students.length;i++){
-    let mark = Object.values(students[i].subjects);
-    marks.push([].concat.apply([], mark));
+function getStudentInfo(arr){
+  const marks = [];
+  const averageArr = [];
+  const markStudents = [];
+  for(let i=0; i< arr.length;i++){
+    marks.push([].concat.apply([],Object.values(arr[i].subjects)));
   }
   for(k = 0; k < marks.length; k++){
     averageArr.push(getAverage(marks[k]));
   }
-  console.log(averageArr);
   averageArr.forEach((cours, i, mark) => {
     markStudents.push({
-     course: students[i].course,
-     name: students[i].name,
+     course: arr[i].course,
+     name: arr[i].name,
      averageMark: mark[i]
    });
   });
-  document.writeln(`<p>Information about students:</p>`);
-  document.writeln(`<li>${Object.entries(markStudents[0])}</li>`);
-  document.writeln(`<li>${Object.entries(markStudents[1])}</li>`);
-  document.writeln(`<li>${Object.entries(markStudents[2])}</li>`);
-
   return markStudents;
 }
-console.log(getStudentInfo());
-function getStudentsNames(){
-  let result = [];
+const informStudent = getStudentInfo(students);
+console.log(informStudent);
+
+document.writeln(`<p>Information about students:</p>`);
+informStudent.forEach((mark) => {
+  document.writeln(`<li>${Object.entries(mark)}</li>`);
+});
+
+function getStudentsNames(arr){
+  const result = [];
   students.forEach((name, i) => {
-    result.push(students[i].name);
+    result.push(arr[i].name);
     result.sort();
   });
-  document.writeln(`<p>Names of students in alphabetical order: ${result} </p>`);
   return result;
 }
-console.log(getStudentsNames());
+const alphabetName = getStudentsNames(students);
+console.log(alphabetName);
+document.writeln(`<p>Names of students in alphabetical order: ${alphabetName} </p>`);
 
-function getBestStudent(){
- let markStudents = getAvarageMark();
+function getBestStudent(arr){
  let max = 0;
  let bestStudent = 0;
- Object.keys(markStudents).forEach(key => {
-  if(max < markStudents[key]){
-    max = markStudents[key];
+ Object.keys(nameWithMark).forEach(key => {
+  if(max < nameWithMark[key]){
+    max = nameWithMark[key];
     bestStudent = key;
   }
 });
- document.writeln(`<p>The best student: ${bestStudent} </p>`);
  return bestStudent;
 }
-console.log(getBestStudent());
+const bestStudent = getBestStudent(nameWithMark);
+console.log(bestStudent);
+document.writeln(`<p>The best student: ${bestStudent} </p>`);
 
 function calculateWordLetters(word){
- let arr = word.split("");
-  let lettersInWord = {};
-  arr.forEach(current => {
-    const count = arr.filter(letter => letter === current).length;
-    lettersInWord[current] = count;
-  });
-  document.writeln(`<p>The number of letters in a word '${word}':</p>`);
-  Object.entries(lettersInWord).map(([letter, number]) => {
-    document.writeln(`<li>${letter}: ${number} </li>`);
-  });
-  return lettersInWord;
+ const arr = word.split("");
+ const lettersInWord = {};
+ arr.forEach(current => {
+  lettersInWord[current] = arr.filter(letter => letter === current).length;
+});
+ document.writeln(`<p>The number of letters in a word '${word}':</p>`);
+ return lettersInWord;
 }
-console.log(calculateWordLetters('test'));
+const letterInWord = calculateWordLetters('test');
+console.log(letterInWord);
+Object.entries(letterInWord).map(([letter, number]) => {
+  document.writeln(`<li>${letter}: ${number} </li>`);
+});
