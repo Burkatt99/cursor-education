@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lacquer&display=swap');
 *{
 	padding: 0px;
 	margin:0px;
@@ -62,8 +63,9 @@ font-family: 'Reenie Beanie', cursive;
 p, li{
 	font-size: 20px;
 	color: black;
-	font-family: 'Pacifico', cursive;
+	font-family: 'Lacquer', sans-serif;
 	text-align: left;
+
 }
 
 .exit{
