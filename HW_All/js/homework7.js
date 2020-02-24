@@ -19,20 +19,20 @@ const latvia = {
      document.writeln(`<p>Result function #1:</p>`);
     document.writeln(`<p>In your country you need to pay tax for your salary: ${getMyTaxes.call(ukraine,12000)}.</p>`);
 
-    function getMiddleTaxes(country){
+    function getMiddleTaxes(){
       const middleTax = this.tax * this.middleSalary;
       return middleTax;
     }
     document.writeln(`<p>Result function #2:</p>`);
     document.writeln(`<p>In your country tax for middle salary: ${getMiddleTaxes.call(latvia)}.</p>`);
 
-    function getTotalTaxes(country){
+    function getTotalTaxes(){
       const allTax = this.tax * this.middleSalary * this.vacancies;
       return allTax;
     }
     document.writeln(`<p>Result function #3:</p>`);
     document.writeln(`<p>In your country tax for middle salary: ${getTotalTaxes.call(litva)}.</p>`);
-    function getMySalary(country){
+    function getMySalary(){
       const mySalary = {};
       const min = 1500;
       const max = 2000;
