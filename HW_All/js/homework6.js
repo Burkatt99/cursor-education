@@ -101,8 +101,8 @@ const informStudent = getStudentInfo(students);
 console.log(informStudent);
 
 document.writeln(`<p>Information about students:</p>`);
-informStudent.forEach((mark) => {
-  document.writeln(`<li>${Object.entries(mark)}</li>`);
+informStudent.forEach((inform) => {
+  document.writeln(`<li>${Object.entries(inform)}</li>`);
 });
 
 function getStudentsNames(arr){
