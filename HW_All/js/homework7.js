@@ -16,7 +16,7 @@ const latvia = {
       const sumaWithTax = this.tax * salary;
       return sumaWithTax;
     }
-     document.writeln(`<p>Result function #1:</p>`);
+    document.writeln(`<p>Result function #1:</p>`);
     document.writeln(`<p>In your country you need to pay tax for your salary: ${getMyTaxes.call(ukraine,12000)}.</p>`);
 
     function getMiddleTaxes(){
@@ -33,18 +33,19 @@ const latvia = {
     document.writeln(`<p>Result function #3:</p>`);
     document.writeln(`<p>In your country tax for middle salary: ${getTotalTaxes.call(litva)}.</p>`);
     function getMySalary(){
-      const mySalary = {};
       const min = 1500;
       const max = 2000;
       let salary = Math.floor(Math.random() * (max - min + 1) + min);
       const taxes = Math.floor(getMyTaxes.call(this,salary));
       const profit = Math.floor(salary - taxes);
-      return{
+      const mySalary = {
         salary,
         taxes,
         profit
       }
+      return  setInterval(() => console.log(mySalary), 10000);
     }
+    getMySalary.call(ukraine);
     document.writeln(`<p>Result function #4:</p>`);
-     document.writeln(`<p>In console!</p>`);
-    setInterval(() => console.log(getMySalary.call(ukraine)), 10000);
+    document.writeln(`<p>In console!</p>`);
+    
