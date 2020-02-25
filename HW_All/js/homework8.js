@@ -32,7 +32,7 @@ class Student{
 			this.status = false;
 		}
 	}
-	let firstStudent = new Student('Ivan Franko National University of Lviv', 4, 'Bura Tetiana');
+	const firstStudent = new Student('Ivan Franko National University of Lviv', 4, 'Bura Tetiana');
 	document.writeln(`<p>Information about student: ${firstStudent.getInfo()}</p>`);
 	document.writeln(`<p>Array marks our student: ${firstStudent.marks}</p>`);
 	firstStudent.marks = 5; 
@@ -43,3 +43,19 @@ class Student{
 	firstStudent.recover();
 	document.writeln(`<p>Marks our student after recovery at university: ${firstStudent.marks}</p>`);
 	document.writeln('<h1>Advanvced</h1>');
+
+	class BudgetStudent extends Student{
+		constructor(arrMarks){
+			this.ourMarks = arrMarks;
+			setInterval(() => this.getScholarship(), 30*1000);
+		}
+		getScholarship(){
+			if (firstStudent.getAverageMark() >= 4.0) {
+				return 'You received 1400 UAH scholarships!';
+			} else {
+				return 'You cannot receive a scholarship!';
+			}
+		}
+	}	
+const myStudent = new BudgetStudent([4,3,5,5,4]);
+console.log(myStudent);
