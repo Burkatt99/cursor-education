@@ -43,19 +43,25 @@ class Student{
 	firstStudent.recover();
 	document.writeln(`<p>Marks our student after recovery at university: ${firstStudent.marks}</p>`);
 	document.writeln('<h1>Advanvced</h1>');
-
 	class BudgetStudent extends Student{
 		constructor(arrMarks){
+			super();
 			this.ourMarks = arrMarks;
-			setInterval(() => this.getScholarship(), 30*1000);
+			setInterval(() => console.log(this.getScholarship()), 30*1000);
 		}
 		getScholarship(){
-			if (firstStudent.getAverageMark() >= 4.0) {
-				return 'You received 1400 UAH scholarships!';
+			if((this.status === false)&&(this.getAverageMark() >= 4.0)){
+				return 'You received 1400 UAH scholarships with marks: ' + this.ourMarks;
 			} else {
-				return 'You cannot receive a scholarship!';
+				return 'You cannot receive a scholarship with marks: ' + this.ourMarks;
 			}
 		}
-	}	
-const myStudent = new BudgetStudent([4,3,5,5,4]);
-console.log(myStudent);
+	}
+const goodStudent = new BudgetStudent([5,5,4,5,4]);
+const badStudent = new BudgetStudent([3,3,2,2,4]);
+document.writeln(`<p>Answer for good student: ${goodStudent.getScholarship()}</p>`);
+document.writeln(`<p>Answer for bad student: ${badStudent.getScholarship()}</p>`);
+goodStudent.dismiss();
+document.writeln(`<p>Answer for good student after expulsion from the university: ${goodStudent.getScholarship()}</p>`);
+goodStudent.recover();
+document.writeln(`<h2>See in console output result every 30 sec!!!</h2>`)
