@@ -94,10 +94,9 @@ function getMark(arr){
   for(let i=0; i < arr.length;i++){
     marks.push([].concat.apply([], Object.values(arr[i].subjects)));
   }
-  for(k = 0; k < marks.length; k++){
+  for(let k = 0; k < marks.length; k++){
     averageArr.push(getAverage(marks[k]));
   }
-  console.log(averageArr);
   averageArr.forEach((mark, i) => {
     markStudents[arr[i].name] = mark;
   });
