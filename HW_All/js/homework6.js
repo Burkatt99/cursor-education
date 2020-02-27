@@ -24,38 +24,70 @@ const students = [{
   }
 }];
 
-function getSubject (arr) {
+function getSubject (student) {
   const names =[];
   const subjects = [];
-  const result = [];
-  for(let i=0; i< arr.length;i++){
-   const sub = Object.keys(arr[i].subjects);
-   subjects.push(sub.map((subject) => subject[0].toUpperCase() + subject.slice(1).replace('_'," ")));  
- }
- for(let k=0; k < arr.length; k++){
-  names.push(arr[k].name);
-}
-for(let i=0; i< names.length;i++){
-  result.push(names[i],subjects[i]);
-}
-return result;
-}
-console.log(getSubject(students));
-const nameStudent = getSubject(students);
-for(let i=0; i < nameStudent.length; i+=2){
-  document.writeln(`<p>Student ${nameStudent[i]} have this subjects:${nameStudent[i+1]}.</p>`);  
+  const sub = Object.keys(student.subjects);
+  subjects.push(sub.map((subject) => subject[0].toUpperCase() + subject.slice(1).replace('_'," ")));  
+  return subjects;
 }
 
-
+document.writeln(`<p>Student ${students[0].name} have this subjects:${getSubject(students[0])}.</p>`);  
+document.writeln(`<p>Student ${students[1].name} have this subjects:${getSubject(students[1])}.</p>`);
+document.writeln(`<p>Student ${students[2].name} have this subjects:${getSubject(students[2])}.</p>`);
 
 function getAverage(arr){
-  arr.reduce((accumulator, currentEl) => {
-    return summa = accumulator + currentEl;
+  const summa = arr.reduce((accumulator, currentEl) => {
+    return accumulator + currentEl;
   }, 0);
-  let average = summa/arr.length;
+  const average = summa/arr.length;
   return average.toFixed(2);
 }
-function getAvarageMark(arr){
+function getAvarageMark(student){
+  const marks = [];
+  const averageArr = [];
+  marks.push([].concat.apply([], Object.values(student.subjects)));
+  for(let k = 0; k < marks.length; k++){
+   return getAverage(marks[k]);
+ }
+}
+document.writeln(`<li>${students[0].name} have avarage mark:${getAvarageMark(students[0])}.</li>`);  
+document.writeln(`<li>${students[1].name} have avarage mark:${getAvarageMark(students[1])}.</li>`);
+document.writeln(`<li>${students[2].name} have avarage mark:${getAvarageMark(students[2])}.</li>`);
+
+function getStudentInfo(student){
+  const marks = [];
+  const averageArr = [];
+  marks.push([].concat.apply([],Object.values(student.subjects)));
+  function markStudent() {
+    for(let k = 0; k < marks.length; k++) {
+     return getAverage(marks[k]);
+   }
+ }
+ return markStudents = {
+   course: student.course,
+   name: student.name,
+   averageMark: markStudent()
+ };
+}
+document.writeln(`<p>Information about ${students[0].name}:</p>`);
+document.writeln(`<li>${Object.entries(getStudentInfo(students[0]))}</li>`);
+document.writeln(`<p>Information about ${students[1].name}:</p>`);
+document.writeln(`<li>${Object.entries(getStudentInfo(students[1]))}</li>`);
+document.writeln(`<p>Information about ${students[2].name}:</p>`);
+document.writeln(`<li>${Object.entries(getStudentInfo(students[2]))}</li>`);
+
+function getStudentsNames(arr){
+  const result = [];
+  arr.forEach((name, i) => {
+    result.push(arr[i].name);
+  });
+  return result.sort();
+}
+const alphabetName = getStudentsNames(students);
+document.writeln(`<p>Names of students in alphabetical order: ${alphabetName} </p>`);
+
+function getMark(arr){
   const marks = [];
   const averageArr = [];
   const markStudents = {};
@@ -71,66 +103,20 @@ function getAvarageMark(arr){
   });
   return markStudents;
 }
-const nameWithMark = getAvarageMark(students);
-console.log(nameWithMark);
-document.writeln(`<p>Students have this marks: </p>`);
-Object.entries(nameWithMark).map(([name, marks]) => {
-  document.writeln(`<li>${name}: ${marks} </li>`);
-});
-
-function getStudentInfo(arr){
-  const marks = [];
-  const averageArr = [];
-  const markStudents = [];
-  for(let i=0; i< arr.length;i++){
-    marks.push([].concat.apply([],Object.values(arr[i].subjects)));
-  }
-  for(k = 0; k < marks.length; k++){
-    averageArr.push(getAverage(marks[k]));
-  }
-  averageArr.forEach((cours, i, mark) => {
-    markStudents.push({
-     course: arr[i].course,
-     name: arr[i].name,
-     averageMark: mark[i]
-   });
-  });
-  return markStudents;
-}
-const informStudent = getStudentInfo(students);
-console.log(informStudent);
-
-document.writeln(`<p>Information about students:</p>`);
-informStudent.forEach((inform) => {
-  document.writeln(`<li>${Object.entries(inform)}</li>`);
-});
-
-function getStudentsNames(arr){
-  const result = [];
-  students.forEach((name, i) => {
-    result.push(arr[i].name);
-    result.sort();
-  });
-  return result;
-}
-const alphabetName = getStudentsNames(students);
-console.log(alphabetName);
-document.writeln(`<p>Names of students in alphabetical order: ${alphabetName} </p>`);
+const nameWithMark = getMark(students);
 
 function getBestStudent(arr){
  let max = 0;
- let bestStudent = 0;
- Object.keys(nameWithMark).forEach(key => {
-  if(max < nameWithMark[key]){
-    max = nameWithMark[key];
+ let bestStudent = '';
+ Object.keys(arr).forEach(key => {
+  if(max < arr[key]){
+    max = arr[key];
     bestStudent = key;
   }
 });
  return bestStudent;
 }
-const bestStudent = getBestStudent(nameWithMark);
-console.log(bestStudent);
-document.writeln(`<p>The best student: ${bestStudent} </p>`);
+document.writeln(`<p>The best student: ${getBestStudent(nameWithMark)} </p>`);
 
 function calculateWordLetters(word){
  const arr = word.split("");
@@ -142,7 +128,6 @@ function calculateWordLetters(word){
  return lettersInWord;
 }
 const letterInWord = calculateWordLetters('test');
-console.log(letterInWord);
 Object.entries(letterInWord).map(([letter, number]) => {
   document.writeln(`<li>${letter}: ${number} </li>`);
 });
