@@ -41,9 +41,9 @@ function getAverage(arr){
     return accumulator + currentEl;
   }, 0);
   const average = summa/arr.length;
-  return average.toFixed(2);
+  return Number(average.toFixed(2));
 }
-function getAvarageMark(student){
+function getAverageMark(student){
   const marks = [];
   const averageArr = [];
   marks.push([].concat.apply([], Object.values(student.subjects)));
@@ -51,9 +51,9 @@ function getAvarageMark(student){
    return getAverage(marks[k]);
  }
 }
-document.writeln(`<li>${students[0].name} have avarage mark:${getAvarageMark(students[0])}.</li>`);  
-document.writeln(`<li>${students[1].name} have avarage mark:${getAvarageMark(students[1])}.</li>`);
-document.writeln(`<li>${students[2].name} have avarage mark:${getAvarageMark(students[2])}.</li>`);
+document.writeln(`<li>${students[0].name} have avarage mark:${getAverageMark(students[0])}.</li>`);  
+document.writeln(`<li>${students[1].name} have avarage mark:${getAverageMark(students[1])}.</li>`);
+document.writeln(`<li>${students[2].name} have avarage mark:${getAverageMark(students[2])}.</li>`);
 
 function getStudentInfo(student){
   const marks = [];
@@ -87,35 +87,19 @@ function getStudentsNames(arr){
 const alphabetName = getStudentsNames(students);
 document.writeln(`<p>Names of students in alphabetical order: ${alphabetName} </p>`);
 
-function getMark(arr){
-  const marks = [];
-  const averageArr = [];
-  const markStudents = {};
-  for(let i=0; i < arr.length;i++){
-    marks.push([].concat.apply([], Object.values(arr[i].subjects)));
-  }
-  for(let k = 0; k < marks.length; k++){
-    averageArr.push(getAverage(marks[k]));
-  }
-  averageArr.forEach((mark, i) => {
-    markStudents[arr[i].name] = mark;
-  });
-  return markStudents;
-}
-const nameWithMark = getMark(students);
-
 function getBestStudent(arr){
- let max = 0;
- let bestStudent = '';
- Object.keys(arr).forEach(key => {
-  if(max < arr[key]){
-    max = arr[key];
-    bestStudent = key;
-  }
-});
- return bestStudent;
+  let max = 0;
+  arr.forEach(el => {
+    const average = getAverageMark(el);
+    if(average > max) {
+      max = average;
+
+      student = el;
+    } 
+  });
+  return student.name;
 }
-document.writeln(`<p>The best student: ${getBestStudent(nameWithMark)} </p>`);
+document.writeln(`<p>The best student: ${getBestStudent(students)} </p>`);
 
 function calculateWordLetters(word){
  const arr = word.split("");
