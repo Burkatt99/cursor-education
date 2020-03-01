@@ -25,7 +25,6 @@ const students = [{
 }];
 
 function getSubject (student) {
-  const names =[];
   const subjects = [];
   const sub = Object.keys(student.subjects);
   subjects.push(sub.map((subject) => subject[0].toUpperCase() + subject.slice(1).replace('_'," ")));  
@@ -46,28 +45,21 @@ function getAverage(arr){
 function getAverageMark(student){
   const marks = [];
   const averageArr = [];
-  marks.push([].concat.apply([], Object.values(student.subjects)));
-  for(let k = 0; k < marks.length; k++){
-   return getAverage(marks[k]);
- }
+ const mark = [].concat.apply([], Object.values(student.subjects));
+   return getAverage(mark);
 }
 document.writeln(`<li>${students[0].name} have avarage mark:${getAverageMark(students[0])}.</li>`);  
 document.writeln(`<li>${students[1].name} have avarage mark:${getAverageMark(students[1])}.</li>`);
 document.writeln(`<li>${students[2].name} have avarage mark:${getAverageMark(students[2])}.</li>`);
 
 function getStudentInfo(student){
-  const marks = [];
   const averageArr = [];
-  marks.push([].concat.apply([],Object.values(student.subjects)));
-  function markStudent() {
-    for(let k = 0; k < marks.length; k++) {
-     return getAverage(marks[k]);
-   }
- }
+  const mark = [].concat.apply([],Object.values(student.subjects));
+  const marks = getAverage(mark);
  return markStudents = {
    course: student.course,
    name: student.name,
-   averageMark: markStudent()
+   averageMark: marks
  };
 }
 document.writeln(`<p>Information about ${students[0].name}:</p>`);
@@ -89,11 +81,11 @@ document.writeln(`<p>Names of students in alphabetical order: ${alphabetName} </
 
 function getBestStudent(arr){
   let max = 0;
+  let student = 0;
   arr.forEach(el => {
     const average = getAverageMark(el);
     if(average > max) {
       max = average;
-
       student = el;
     } 
   });
@@ -107,10 +99,10 @@ function calculateWordLetters(word){
  arr.forEach(current => {
   lettersInWord[current] = arr.filter(letter => letter === current).length;
 });
- document.writeln(`<p>The number of letters in a word '${word}':</p>`);
  return lettersInWord;
 }
 const letterInWord = calculateWordLetters('test');
+document.writeln(`<p>The number of letters in a word "test":</p>`);
 Object.entries(letterInWord).map(([letter, number]) => {
   document.writeln(`<li>${letter}: ${number} </li>`);
 });
