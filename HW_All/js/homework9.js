@@ -2,7 +2,8 @@ function generateBlocks(){
 	const title = document.getElementById('title');
 	const square = document.createElement('div');
 	title.after(square);
-	square.innerHTML = '<div class = "mini"></div>'.repeat(25);
+	const numberSquare = 25;
+	square.innerHTML = '<div class = "mini"></div>'.repeat(numberSquare);
 }
 
 function generateColorForBlocks(){	
