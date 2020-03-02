@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lacquer&display=swap');
+*{
+	padding: 0px;
+	margin:0px;
+}
+body{
+	background-image: url("images/1.jpg");
+	 background-size: 100% auto; }
+	 .main{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+.inform{
+	width: 40%;
+	/*border: 1px solid red;*/
+}
+.forMe{
+	width: 80%;
+	/*border: 1px solid pink;*/
+	padding-top: 40px;
+	margin-left: 120px;
+}
+.myFoto{
+	width: 260px;
+	height: 260px;
+	background-image: url("images/me2.png");	
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	margin-left: 17%;
+	margin-bottom: 0;	
+}
+.myFoto:hover{
+	background-image: url("images/me1.png");
+	border: 2px solid black;
+	border-radius: 50%;
+}
+h1{
+	color: IndianRed;
+}
+h1,h2{
+text-align: center;
+font-family: 'Reenie Beanie', cursive;
+font-size: 80px;
+}
+.blocks{
+	/*border:1px solid green;*/
+	width: 60%;
+	padding:30px 30px;
+	margin:0 25%;
+	text-align: center;
+}
+.blocks div{
+	width: 400px;
+	height: 400px;
+	float: left;
+}
+.blocks .mini{
+	width: 80px;
+	height: 80px;
+	border-radius: 20px;
+}
+p{
+	font-size: 35px;
+	color: black;
+	font-family: 'Pacifico', cursive;
+	text-align: center;
+		font-family: 'Lacquer', sans-serif;
+
+}
+
+.exit{
+	width: 25%;
+	height: 45px;
+	border: 2px solid IndianRed;
+	border-radius: 25px;
+	text-align: center;
+	background: rgba(0,0,0,0.1);
+	margin-left: 40%;
+	margin-top: 40px;
+	padding-bottom: 20px;
+	
+}
+.exit a{
+	color: black;
+	text-decoration: none;
+	text-align: center;
+	font-size: 65px;
+	font-family: 'Reenie Beanie', cursive;
+}
+.exit:hover{
+	background: rgba(0,0,0,0);
+		border:2px solid black;
+		color: IndianRed;
+}
+.exit:hover a{
+	color: IndianRed;
+
