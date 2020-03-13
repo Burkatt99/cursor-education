@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lacquer&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lacquer|Raleway|Tomorrow&display=swap');
 *{
 	padding: 0px;
 	margin:0px;
@@ -44,36 +45,30 @@ h1{
 h1,h2{
 text-align: center;
 font-family: 'Reenie Beanie', cursive;
-font-size: 80px;
+font-size: 100px;
 }
 .blocks{
 	/*border:1px solid green;*/
 	width: 60%;
 	padding:30px 30px;
-	margin:0 25%;
+	margin-right: 10%;
 	text-align: center;
 }
-.blocks div{
-	width: 400px;
-	height: 400px;
-	float: left;
+.blocks h1,h3{
+text-align: center;
+font-size: 70px;
+font-family: 'Reenie Beanie', cursive;
 }
-.blocks .mini{
-	background: IndianRed;
-	width: 80px;
-	height: 80px;
-	border-radius: 20px;
+.animal {
+	width: 20%;
+	transition: top 0.5s, left 0.5s;
 }
-
-p{
-	font-size: 35px;
+p, li{
+	font-size: 45px;
 	color: black;
-	font-family: 'Pacifico', cursive;
+	font-family: 'Lacquer', sans-serif;
 	text-align: center;
-		font-family: 'Lacquer', sans-serif;
-
 }
-
 .exit{
 	width: 25%;
 	height: 45px;

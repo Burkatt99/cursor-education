@@ -54,6 +54,7 @@ document.writeln(`<li>${students[2].name} have avarage mark:${getAverageMark(stu
 
 function getStudentInfo(student){
   const averageArr = [];
+  let markStudents = {};
   const mark = [].concat.apply([],Object.values(student.subjects));
   const marks = getAverage(mark);
  return markStudents = {
