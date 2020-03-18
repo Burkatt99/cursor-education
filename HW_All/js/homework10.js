@@ -1,51 +1,79 @@
 const donut_strawberry = document.getElementById('strawberry');
 const donut_milk = document.getElementById('milk');
 const donut_banana = document.getElementById('banana');
-const donut_lemon = document.getElementById('strawberry');
-const donut_chokolate = document.getElementById('strawberry');
+const donut_lemon = document.getElementById('lemon');
+const donut_chokolate = document.getElementById('chokolate');
 const donut_raspberry = document.getElementById('raspberry');
-function soundEating(sound){
-	const myAudio = new Audio;
-	myAudio.src = sound;
-	myAudio.play();
-	return false;
-}
+const sounds = [new Audio('sounds/sound1.wav'),new Audio('sounds/sound2.mp3'),new Audio('sounds/sound3.wav'),new Audio('sounds/sound4.mp3'),new Audio('sounds/sound5.wav'),new Audio('sounds/sound6.mp3')]
+
+function soundEating(sound,status){
+	sound.currentTime = 0;
+	sound.play();	
+	}
 function getSound(){
 	if(donut_strawberry){
 		donut_strawberry.addEventListener('click',() =>{
-			donut_strawberry.currrentTime = 0;
-			soundEating("sounds/sound1.wav");
+			soundEating(sounds[0]);
+			donut_strawberry.style.border = '1px solid pink';
 		});
 	}
 	if(donut_milk){
 		donut_milk.addEventListener('click',() =>{
-			donut_milk.currrentTime = 0;
-			soundEating("sounds/sound2.mp3");
+			soundEating(sounds[1]);
 		});
 	}
 	if(donut_banana){
 		donut_banana.addEventListener('click',() =>{
-			donut_banana.currrentTime = 0;
-			soundEating("sounds/sound3.wav");
+			soundEating(sounds[2]);
 		});
 	}
 	if(donut_lemon){
 		donut_lemon.addEventListener('click',() =>{
-			donut_lemon.currrentTime = 0;
-			soundEating("sounds/sound4.wav");
+			soundEating(sounds[3]);
 		});
 	}
 	if(donut_chokolate){
 		donut_chokolate.addEventListener('click',() =>{
-			donut_chokolate.currrentTime = 0;
-			soundEating("sounds/sound5.wav");
+			soundEating(sounds[4]);
 		});
 	}
 	if(donut_raspberry){
 		donut_raspberry.addEventListener('click',() =>{
-			donut_raspberry.currrentTime = 0;
-			soundEating("sounds/sound6.wav");
+			soundEating(sounds[5]);
 		});
 	}
 }
 getSound();
+function getKey(){
+	document.addEventListener('keydown',function(event){
+		if(event.code == 'KeyF'){
+			soundEating(sounds[0]);
+		}
+	});
+	document.addEventListener('keydown',function(event){
+		if(event.code == 'KeyG'){
+			soundEating(sounds[1]);
+		}
+	});
+	document.addEventListener('keydown',function(event){
+		if(event.code == 'KeyH'){
+			soundEating(sounds[2]);
+		}
+	});
+	document.addEventListener('keydown',function(event){
+		if(event.code == 'KeyJ'){
+			soundEating(sounds[3]);
+		}
+	});
+	document.addEventListener('keydown',function(event){
+		if(event.code == 'KeyK'){
+			soundEating(sounds[4]);
+		}
+	});
+	document.addEventListener('keydown',function(event){
+		if(event.code == 'KeyL'){
+			soundEating(sounds[5]);
+		}
+	});
+}
+getKey();
