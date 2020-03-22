@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lacquer&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lacquer|Raleway|Tomorrow&display=swap');
+*{
+	padding: 0px;
+	margin:0px;
+}
+body{
+	background-image: url("images/1.jpg");
+	 background-size: 100% auto; }
+	 .main{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+.inform{
+	width: 40%;
+	/*border: 1px solid red;*/
+}
+.forMe{
+	width: 80%;
+	/*border: 1px solid pink;*/
+	padding-top: 40px;
+	margin-left: 120px;
+}
+.myFoto{
+	width: 260px;
+	height: 260px;
+	background-image: url("images/me2.png");	
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	margin-left: 17%;
+	margin-bottom: 0;	
+}
+.myFoto:hover{
+	background-image: url("images/me1.png");
+	border: 2px solid black;
+	border-radius: 50%;
+}
+h1{
+	color: IndianRed;
+}
+h1,h2{
+text-align: center;
+font-family: 'Reenie Beanie', cursive;
+font-size: 100px;
+}
+.blocks{
+	/*border:1px solid green;*/
+	width: 60%;
+	padding:30px 30px;
+	margin-right: 10%;
+	text-align: center;
+}
+.blocks h1,h3{
+text-align: center;
+font-size: 70px;
+font-family: 'Reenie Beanie';
+}
+p{
+	font-size: 45px;
+	color: black;
+	font-family: 'Lacquer', sans-serif;
+	text-align: center;
+}
+.butt{
+	width: 35%;
+	height: 55px;
+	border: 2px solid IndianRed;
+	border-radius: 25px;
+	text-align: center;
+	background: rgba(0,0,0,0.1);
+	margin-bottom: 15px;
+	outline: none;
+	color: black;
+	font-size: 45px;
+	font-family: 'Reenie Beanie', cursive;
+}
+#font p{
+	margin-top: 25px;
+}
+.exit{
+	width: 25%;
+	height: 45px;
+	border: 2px solid IndianRed;
+	border-radius: 25px;
+	text-align: center;
+	background: rgba(0,0,0,0.1);
+	margin-left: 40%;
+	margin-top: 40px;
+	padding-bottom: 20px;	
+}
+.exit a{
+	color: black;
+	text-decoration: none;
+	text-align: center;
+	font-size: 65px;
+	font-family: 'Reenie Beanie', cursive;
+}
+.exit:hover, .butt:hover{
+	background: rgba(0,0,0,0);
+		border:2px solid black;
+		color: IndianRed;
+}
+.exit:hover a{
+	color: IndianRed;
+
